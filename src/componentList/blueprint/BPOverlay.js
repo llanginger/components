@@ -84,5 +84,5 @@ class OverlayExample extends React.Component {
 
 export const OverlayBundle = {
     childNode: <OverlayExample />,
-    componentName: "Overlay"
+    componentName: "Overlay (Broken atm!)"
 };
