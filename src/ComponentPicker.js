@@ -1,16 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import { ComponentListItem } from './ComponentListItem'
-import { ComponentList } from './ComponentList'
+import React from "react";
+import styled from "styled-components";
+import { ComponentListItem } from "./ComponentListItem";
+import { ComponentList } from "./ComponentList";
 
-import { InlinePropList } from './InlinePropList'
+import { InlinePropList } from "./InlinePropList";
 
-import { componentBundleArray } from './componentArray'
+import { componentBundleArray } from "./componentArray";
 
-
-export const ComponentPicker = (props) => {
-  
-  const Container = styled.div`
+export const ComponentPicker = props => {
+    const Container = styled.div`
     height: 100%;
     width: 300px;
     background-color: rgba(138, 155, 168, 0.2);
@@ -22,19 +20,20 @@ export const ComponentPicker = (props) => {
     overflow-x: hidden;
     overflow-y: auto;
     
-  `
+  `;
 
-  
-  // Map each component to its own ComponentListItem component 
-  const makeList = () => {
-    return componentBundleArray.map((bundle, i) => <ComponentListItem bundle={bundle} key={i}/>)
-  }
-  
-  return (
-    <Container>
-      <ComponentList>
-        {makeList()}
-      </ComponentList>
-    </Container>
-  )
-}
+    // Map each component to its own ComponentListItem component
+    const makeList = () => {
+        return componentBundleArray.map((bundle, i) =>
+            <ComponentListItem bundle={bundle} key={i} />
+        );
+    };
+
+    return (
+        <Container>
+            <ComponentList>
+                {makeList()}
+            </ComponentList>
+        </Container>
+    );
+};
