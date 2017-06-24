@@ -5,8 +5,15 @@ import { PropItem } from "./PropItem";
 import { StringPropUpdater } from "./propUpdaters/StringPropUpdater";
 import { BoolPropUpdater } from "./propUpdaters/BoolPropUpdater";
 import { NumPropUpdater } from "./propUpdaters/NumPropUpdater";
+import { TextEditor } from "./mainComponents/TextEditor";
+import { generateUpdaters } from "./propUpdaters/PropUpdaters";
 
-export const PropList = (props: any) => {
+interface PLProps {
+    propList: any;
+    componentName: string;
+}
+
+export const PropList = (props: PLProps) => {
     const Container = styled.div`
     width: 300px;
     height: 100%;
@@ -33,7 +40,7 @@ export const PropList = (props: any) => {
     const DocHeader = styled.div`
     font-size: 25px;
     width: 100%;
-  text-align: center;
+    text-align: center;
     padding: 20px 0px;
     background-color: #00bcd4;
     margin-left: 0 auto;
@@ -41,66 +48,12 @@ export const PropList = (props: any) => {
     color: white;
   `;
 
-    // Probably don't need this anymore
-    // const renderDocs = () => {
-    //     return props.docs.map((doc, i) => {
-    //         return (
-    //             <PropItem
-    //                 key={i}
-    //                 propName={doc.propName}
-    //                 propType={doc.propType}
-    //                 description={doc.description}
-    //             />
-    //         );
-    //     });
-    // };
-
-    // Extract this
-    const mapProps = () => {
-        let propArray = [];
-        Object.keys(props.propList).forEach((key, i) => {
-            const value = props.propList[key];
-            if (typeof value === "string") {
-                propArray.push(
-                    <div key={i}>
-                        <StringPropUpdater propValue={value} propName={key} />
-                    </div>
-                );
-            } else if (typeof value === "number") {
-                propArray.push(
-                    <div key={i}>
-                        <NumPropUpdater propValue={value} propName={key} />
-                    </div>
-                );
-            } else if (typeof value === "boolean") {
-                propArray.push(
-                    <div key={i}>
-                        <BoolPropUpdater propValue={value} propName={key} />
-                    </div>
-                );
-            } else if (typeof value === "object") {
-                propArray.push(
-                    <div key={i}>
-                        <StringPropUpdater propValue={value} propName={key} />
-                    </div>
-                );
-            } else {
-                return null;
-            }
-        });
-        return propArray;
-    };
-
-    console.log("Proplist props: ", props);
-    Object.keys(props.propList).forEach((key, i) =>
-        console.log(key + " " + props.propList[key])
-    );
-
     return (
         <Container>
             <DocHeader>{props.componentName} Props:</DocHeader>
             <DocWrapper>
-                {mapProps()}
+                <TextEditor />
+                {generateUpdaters(props.propList)}
             </DocWrapper>
         </Container>
     );

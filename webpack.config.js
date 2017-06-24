@@ -7,6 +7,7 @@ module.exports = {
         "webpack/hot/dev-server",
         "./src/index.tsx"
     ],
+    target: "node",
     output: {
         path: __dirname,
         filename: "bundle.js",

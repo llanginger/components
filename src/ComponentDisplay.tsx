@@ -38,10 +38,10 @@ export const ComponentDisplay = (props: any) => {
         max-width: 100%
     `;
     const currentComponent = store.getState().componentReducer;
+
     return (
         <Container onClick={() => console.log("Display props: ", props)}>
             <PropList
-                docs={currentComponent.docs}
                 propList={currentComponent.component.props}
                 componentName={currentComponent.name}
             />
