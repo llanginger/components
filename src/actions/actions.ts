@@ -15,6 +15,7 @@ interface UpdateAction extends Action {
     propToUpdate: any;
     valueToUpdate: any;
 }
+
 export const UPDATE_PROP: (propToUpdate, valueToUpdate) => UpdateAction = (
     propToUpdate,
     valueToUpdate
@@ -24,6 +25,17 @@ export const UPDATE_PROP: (propToUpdate, valueToUpdate) => UpdateAction = (
         propToUpdate,
         valueToUpdate
     };
+    return actionObj;
+};
+
+export const UPDATE_ALL_PROPS: (
+    payload: {}
+) => PayloadAction = (payload: {}) => {
+    const actionObj: PayloadAction = {
+        type: "UPDATE_ALL_PROPS",
+        payload
+    };
+
     return actionObj;
 };
 

@@ -33,6 +33,14 @@ export const componentReducer = (
                     }
                 }
             };
+        case "UPDATE_ALL_PROPS":
+            return {
+                ...state,
+                component: {
+                    ...state.component,
+                    props: action.payload
+                }
+            };
         default:
             return state;
     }

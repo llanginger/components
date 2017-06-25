@@ -3,18 +3,26 @@ import AceEditor from "react-ace";
 import * as brace from "brace";
 import "brace/mode/javascript";
 import "brace/theme/monokai";
+import { Button, Intent } from "@blueprintjs/core";
 
 import { store, Reducers } from "../store";
 import { connect } from "react-redux";
+import { UPDATE_ALL_PROPS } from "../actions/actions";
 
 console.log("Ace editor: ", AceEditor);
 
-export class _TextEditor extends React.Component<any, any> {
+interface TEState {
+    editorText: string;
+}
+
+export class _TextEditor extends React.Component<any, TEState> {
     constructor(props) {
         super(props);
 
         this.state = { editorText: "I'm an editor!" };
         this._onChange = this._onChange.bind(this);
+        this._onSubmit = this._onSubmit.bind(this);
+        this._handleKeyPress = this._handleKeyPress.bind(this);
     }
 
     componentDidMount() {
@@ -23,14 +31,36 @@ export class _TextEditor extends React.Component<any, any> {
         });
     }
 
-    _onChange(editorText) {
+    _onChange(editorText, e) {
+        console.log("On change event: ", e);
         this.setState({ editorText });
-        console.log("Editor text: ", this.state.editorText);
+    }
+
+    _onSubmit() {
+        const text = JSON.parse(this.state.editorText);
+        console.log("Json parsed text: ", text);
+        this.props.UPDATE_ALL_PROPS(text);
+    }
+
+    _handleKeyPress(e) {
+        if (e.keyCode === 13) {
+            if (e.shiftKey) {
+                e.preventDefault();
+                const text = JSON.parse(this.state.editorText);
+                console.log("Json parsed text: ", text);
+                this.props.UPDATE_ALL_PROPS(text);
+            }
+        } else {
+            return;
+        }
     }
 
     render() {
         return (
-            <div style={{ height: "400px" }}>
+            <div
+                style={{ height: "400px", marginBottom: "50px" }}
+                onKeyDown={this._handleKeyPress}
+            >
                 <AceEditor
                     mode="javascript"
                     theme="monokai"
@@ -48,6 +78,11 @@ export class _TextEditor extends React.Component<any, any> {
                         tabSize: 2
                     }}
                 />
+                <Button
+                    text="Submit component changes"
+                    onClick={this._onSubmit}
+                    intent={Intent.PRIMARY}
+                />
             </div>
         );
     }
@@ -59,4 +94,10 @@ const mapStateToProps = (state: Reducers) => {
     };
 };
 
-export const TextEditor = connect(mapStateToProps, {})(_TextEditor);
+const mapDispatchToProps = {
+    UPDATE_ALL_PROPS
+};
+
+export const TextEditor = connect(mapStateToProps, mapDispatchToProps)(
+    _TextEditor
+);
