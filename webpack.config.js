@@ -7,11 +7,10 @@ module.exports = {
         "webpack/hot/dev-server",
         "./src/index.tsx"
     ],
-    target: "node",
     output: {
         path: __dirname,
         filename: "bundle.js",
-        publicPath: "/build/"
+        publicPath: "/build"
     },
 
     // Enable sourcemaps for debugging webpack's output.

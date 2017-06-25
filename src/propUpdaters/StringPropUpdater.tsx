@@ -43,7 +43,6 @@ export class StringPropUpdater extends React.Component<SPUProps, SPUState> {
                     placeholder={this.props.propValue || "I'm an input"}
                     ref={input => (this.input = input)}
                 />
-                <Emojione text="This is some :) text :+1: mk" />
             </Form>
         );
     }

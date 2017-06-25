@@ -1,3 +1,5 @@
+// TODO: connect all these individually to the redux store
+
 import * as React from "react";
 import styled from "styled-components";
 

@@ -1,7 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import styled from "styled-components";
+import { Provider, connect } from "react-redux";
 
+console.log("Provider: ", Provider);
 import { ComponentDisplay } from "./ComponentDisplay";
 import { ComponentPicker } from "./ComponentPicker";
 import { store } from "./store";
@@ -29,29 +31,18 @@ const MainApp = styled.div`
   }
 `;
 
-class App extends React.Component<{}, {}> {
-    public state: {};
-    private unsubscribe: any;
-    constructor(props: {}) {
-        super(props);
-    }
+const App = props => {
+    return (
+        <MainApp>
+            <ComponentPicker />
+            <ComponentDisplay />
+        </MainApp>
+    );
+};
 
-    componentDidMount() {
-        this.unsubscribe = store.subscribe(() => this.forceUpdate());
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
-
-    render() {
-        return (
-            <MainApp>
-                <ComponentPicker />
-                <ComponentDisplay />
-            </MainApp>
-        );
-    }
-}
-
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
+);

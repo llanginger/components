@@ -4,7 +4,7 @@ import { componentReducer } from "./reducers/componentReducer";
 import { docsReducer } from "./reducers/docsReducer";
 import logger from "redux-logger";
 
-interface Reducers {
+export interface Reducers {
     componentReducer: componentReducer;
     docsReducer: docsReducer;
 }
