@@ -62,3 +62,15 @@ export const TOGGLE_DOCS: () => Action = () => {
         type: "TOGGLE_DOCS"
     };
 };
+
+export const SHOW_EDITOR: () => Action = () => {
+    return {
+        type: "SHOW_EDITOR"
+    };
+};
+
+export const SHOW_COMPONENTS: () => Action = () => {
+    return {
+        type: "SHOW_COMPONENTS"
+    };
+};
