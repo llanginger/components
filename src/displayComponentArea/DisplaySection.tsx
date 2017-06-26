@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { store, Reducers } from "./store";
+import { store, Reducers } from "../store";
 import { connect } from "react-redux";
 
 interface CDProps {

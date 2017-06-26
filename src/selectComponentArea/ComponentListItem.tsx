@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import { Collapse } from "@blueprintjs/core";
-import { store } from "./store";
-import { DISPLAY_COMPONENT } from "./actions/actions";
+import { store } from "../store";
+import { DISPLAY_COMPONENT } from "../actions/actions";
 
 export const ComponentListItem = (props: any) => {
     const Item = styled.li`

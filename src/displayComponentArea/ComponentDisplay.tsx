@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { PropList } from "./PropList";
 import { DisplaySection } from "./DisplaySection";
-import { store, Reducers } from "./store";
+import { store, Reducers } from "../store";
 import { connect } from "react-redux";
 
 export const ComponentDisplay = props => {

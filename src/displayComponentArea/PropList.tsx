@@ -2,12 +2,12 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { PropItem } from "./PropItem";
-import { StringPropUpdater } from "./propUpdaters/StringPropUpdater";
-import { BoolPropUpdater } from "./propUpdaters/BoolPropUpdater";
-import { NumPropUpdater } from "./propUpdaters/NumPropUpdater";
-import { TextEditor } from "./mainComponents/TextEditor";
-import { generateUpdaters } from "./propUpdaters/PropUpdaters";
-import { Reducers } from "./store";
+import { StringPropUpdater } from "../propUpdaters/StringPropUpdater";
+import { BoolPropUpdater } from "../propUpdaters/BoolPropUpdater";
+import { NumPropUpdater } from "../propUpdaters/NumPropUpdater";
+import { TextEditor } from "../mainComponents/TextEditor";
+import { generateUpdaters } from "../propUpdaters/PropUpdaters";
+import { Reducers } from "../store";
 import { connect } from "react-redux";
 
 interface PLProps {

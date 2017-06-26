@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { Provider, connect } from "react-redux";
 
 console.log("Provider: ", Provider);
-import { ComponentDisplay } from "./ComponentDisplay";
-import { ComponentPicker } from "./ComponentPicker";
+import { ComponentDisplay } from "./displayComponentArea/ComponentDisplay";
+import { ComponentPicker } from "./selectComponentArea/ComponentPicker";
 import { store } from "./store";
 
 const MainApp = styled.div`

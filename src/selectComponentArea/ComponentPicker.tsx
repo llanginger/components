@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ComponentListItem } from "./ComponentListItem";
 import { ComponentList } from "./ComponentList";
 
-import { componentBundleArray } from "./componentArray";
+import { componentBundleArray } from "../componentList/componentArray";
 
 export const ComponentPicker = (props: any) => {
     const Container = styled.div`
