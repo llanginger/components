@@ -44,7 +44,7 @@ interface EBProps {
 const _EditorButton = (props: EBProps) => {
     return (
         <Button
-            text="Components List"
+            text="Props Editor"
             className="pt-fill"
             onClick={props.SHOW_EDITOR}
             active={props.isActive}

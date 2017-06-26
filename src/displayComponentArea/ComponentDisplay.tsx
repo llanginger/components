@@ -23,7 +23,6 @@ export const ComponentDisplay = props => {
 
     return (
         <Container onClick={() => console.log("Display props: ", props)}>
-            <PropList />
             <DisplaySection />
         </Container>
     );

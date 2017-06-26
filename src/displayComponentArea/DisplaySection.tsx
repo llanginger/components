@@ -12,7 +12,7 @@ const _DisplaySection = (props: CDProps) => {
     console.log("Display Section Props: ", props);
 
     const DSection = styled.div`
-        width: 80%;
+        width: 100%;
         height: 100%;
         display: flex;
         position: relative;
@@ -27,11 +27,6 @@ const _DisplaySection = (props: CDProps) => {
         display: flex;
         justify-content: center;
         align-items: center;
-    `;
-
-    const Frame = styled.div`
-        box-shadow: 3px 3px 10px #888;
-        max-width: 100%
     `;
 
     return (

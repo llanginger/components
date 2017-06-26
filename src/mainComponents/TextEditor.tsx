@@ -69,6 +69,7 @@ export class _TextEditor extends React.Component<any, TEState> {
                     onChange={this._onChange}
                     fontSize={14}
                     height="100%"
+                    width="100%"
                     value={this.state.editorText}
                     setOptions={{
                         enableBasicAutocompletion: true,

@@ -9,6 +9,7 @@ const initState: editorState = {
 export const editorState = (state: editorState = initState, action) => {
     switch (action.type) {
         case "SHOW_EDITOR":
+        case "DISPLAY_COMPONENT":
             return { showComponents: false };
         case "SHOW_COMPONENTS":
             return { showComponents: true };

@@ -9,6 +9,7 @@ export const ComponentList = (props: any) => {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    position: relative;
     justify-content: ${(props: any) =>
         props.children.length > 3 ? "flex-start" : "center"};
     padding: 0px 10px;

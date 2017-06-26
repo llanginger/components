@@ -9,3 +9,7 @@ html, body {
     background-color: rgb(245, 248, 250);
     height: 100vh;
 }
+
+.pt-button, .pt-button-group {
+    border-radius: 0px !important;
+}

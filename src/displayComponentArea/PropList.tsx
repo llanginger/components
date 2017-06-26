@@ -19,13 +19,11 @@ interface PLProps {
 
 export const _PropList = (props: PLProps) => {
     const Container = styled.div`
-    width: 700px;
+    width: 100%;
     height: 100%;
     padding: 0;
     display: flex;
-    background-color: rgba(19, 124, 189, 0.10);
     justify-content: flex-start;
-    flex-shrink: 0;
     flex-direction: column;
     position: relative;
   `;
@@ -54,7 +52,6 @@ export const _PropList = (props: PLProps) => {
 
     return (
         <Container>
-            <DocHeader>{props.currentComponent.componentName} Props:</DocHeader>
             <DocWrapper>
                 <TextEditor />
                 {generateUpdaters(props.currentComponent.props)}
