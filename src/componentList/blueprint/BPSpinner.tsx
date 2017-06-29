@@ -5,10 +5,17 @@ import { Classes, Spinner, Intent } from "@blueprintjs/core";
 interface SEProps {
     intent?: number;
     className?: string;
+    value?: number;
 }
 
 const SpinnerExample: any = (props: SEProps) => {
-    return <Spinner intent={props.intent} className={props.className} />;
+    return (
+        <Spinner
+            intent={props.intent}
+            className={props.className}
+            value={props.value}
+        />
+    );
 };
 
 SpinnerExample.defaultProps = {

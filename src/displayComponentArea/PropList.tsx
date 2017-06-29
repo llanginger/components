@@ -9,6 +9,7 @@ import { TextEditor } from "../mainComponents/TextEditor";
 import { PropUpdaters } from "../propUpdaters/PropUpdaters";
 import { Reducers } from "../store";
 import { connect } from "react-redux";
+import { ExportButton } from "./ExportButton";
 
 interface PLProps {
     currentComponent?: {
@@ -55,6 +56,7 @@ export const PropList = (props: PLProps) => {
             <DocWrapper>
                 <TextEditor />
                 <PropUpdaters />
+                <ExportButton text="Export Component" />
             </DocWrapper>
         </Container>
     );

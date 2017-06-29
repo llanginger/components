@@ -9,7 +9,7 @@ export const ComponentListItem = (props: any) => {
     height: 200px;
     width: 100%;
     background-color: white;
-    margin: 10px;
+    margin: 0px 0px 10px 0px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;

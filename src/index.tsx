@@ -6,6 +6,7 @@ import { Provider, connect } from "react-redux";
 console.log("Provider: ", Provider);
 import { ComponentDisplay } from "./displayComponentArea/ComponentDisplay";
 import { ComponentPicker } from "./selectComponentArea/ComponentPicker";
+import { NavBar } from "./mainComponents/NavBar";
 import { store } from "./store";
 
 const MainApp = styled.div`
@@ -29,6 +30,12 @@ const MainApp = styled.div`
   *::-webkit-scrollbar-thumb {
       background-color: rgba(0,0,0,0.2);
   }
+`;
+
+const AppContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 `;
 
 const App = props => {
