@@ -14,7 +14,11 @@ export const editorState = (state: editorState = initState, action) => {
         case "DISPLAY_COMPONENT":
             return { ...state, showComponents: false };
         case "SHOW_COMPONENTS":
-            return { ...state, showComponents: true };
+            return {
+                ...state,
+                showComponents: true,
+                showAdvancedEditor: false
+            };
         case "SHOW_ADVANCED_EDITOR":
             return { ...state, showAdvancedEditor: true };
         case "HIDE_ADVANCED_EDITOR":
