@@ -37,7 +37,7 @@ export class StringPropUpdater extends React.Component<SPUProps, SPUState> {
         return (
             <Form onSubmit={this._onSubmit}>
 
-                <p>{this.props.propName}:</p>
+                <p>{this.props.propName}, string:</p>
                 <input
                     className="pt-input pt-fill"
                     placeholder={this.props.propValue || "I'm an input"}

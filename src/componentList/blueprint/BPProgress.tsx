@@ -5,6 +5,7 @@ import { Intent, ProgressBar, Slider, Switch } from "@blueprintjs/core";
 interface PEProps {
     value?: number;
     intent?: number;
+    style?: {};
 }
 
 interface PEState {
@@ -30,7 +31,7 @@ export class ProgressExample extends React.Component<PEProps, PEState> {
 
     render() {
         return (
-            <div style={{ width: "80%" }}>
+            <div style={this.props.style}>
                 <ProgressBar
                     value={this.props.value}
                     intent={this.props.intent}
@@ -41,8 +42,9 @@ export class ProgressExample extends React.Component<PEProps, PEState> {
 }
 
 ProgressExample.defaultProps = {
-    value: null,
-    intent: 1
+    value: 0.5,
+    intent: 1,
+    style: { width: "80%", backgroundColor: "palevioletred" }
 };
 
 export const ProgressBundle = {

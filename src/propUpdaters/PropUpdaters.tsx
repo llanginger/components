@@ -2,12 +2,15 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { Reducers } from "../store";
 
 import { StringPropUpdater } from "./StringPropUpdater";
 import { BoolPropUpdater } from "./BoolPropUpdater";
 import { NumPropUpdater } from "./NumPropUpdater";
 
-export const generateUpdaters = propList => {
+const generateUpdaters = propList => {
+    console.log("Generate updaters called");
     let propArray = [];
     Object.keys(propList).forEach((key, i) => {
         const value = propList[key];
@@ -32,7 +35,7 @@ export const generateUpdaters = propList => {
         } else if (typeof value === "object") {
             propArray.push(
                 <div key={i}>
-                    <StringPropUpdater propValue={value} propName={key} />
+                    <p>Open advanced editor for more detailed prop options!</p>
                 </div>
             );
         } else {
@@ -41,3 +44,21 @@ export const generateUpdaters = propList => {
     });
     return propArray;
 };
+
+const _PropUpdaters = (props: any) => {
+    console.log("Prop updaters initialized");
+
+    return (
+        <div>
+            {generateUpdaters(props.propList)}
+        </div>
+    );
+};
+
+const mapStateToProps = (state: Reducers) => {
+    return {
+        propList: state.componentReducer.component.props
+    };
+};
+
+export const PropUpdaters = connect(mapStateToProps, {})(_PropUpdaters);

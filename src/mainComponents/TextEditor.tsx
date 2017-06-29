@@ -2,25 +2,44 @@ import * as React from "react";
 import AceEditor from "react-ace";
 import * as brace from "brace";
 import "brace/mode/javascript";
-import "brace/theme/monokai";
+import "brace/theme/tomorrow";
+import "brace/theme/chrome";
 import { Button, Intent, Collapse } from "@blueprintjs/core";
+import styled from "styled-components";
 
 import { store, Reducers } from "../store";
 import { connect } from "react-redux";
-import { UPDATE_ALL_PROPS } from "../actions/actions";
-
-console.log("Ace editor: ", AceEditor);
+import {
+    UPDATE_ALL_PROPS,
+    SHOW_ADVANCED_EDITOR,
+    HIDE_ADVANCED_EDITOR
+} from "../actions/actions";
 
 interface TEState {
     editorText: string;
+    submitButtonSuccess: boolean;
     showEditor: boolean;
 }
+
+const EditorContainer = styled.div`
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+
+    > .submit-button {
+        margin-top: 10px;
+    }
+`;
 
 export class _TextEditor extends React.Component<any, TEState> {
     constructor(props) {
         super(props);
 
-        this.state = { editorText: "I'm an editor!", showEditor: false };
+        this.state = {
+            editorText: "I'm an editor!",
+            showEditor: false,
+            submitButtonSuccess: false
+        };
         this._onChange = this._onChange.bind(this);
         this._onSubmit = this._onSubmit.bind(this);
         this._handleKeyPress = this._handleKeyPress.bind(this);
@@ -34,26 +53,28 @@ export class _TextEditor extends React.Component<any, TEState> {
     }
 
     _onChange(editorText, e) {
-        console.log("On change event: ", e);
         this.setState({ editorText });
     }
 
     _onSubmit() {
         const text = JSON.parse(this.state.editorText);
-        console.log("Json parsed text: ", text);
         this.props.UPDATE_ALL_PROPS(text);
+        this.setState({ submitButtonSuccess: true });
+        setTimeout(() => {
+            this.setState({ submitButtonSuccess: false });
+        }, 1500);
     }
 
     _showEditor() {
-        this.setState({ showEditor: !this.state.showEditor });
+        this.props.showAdvancedEditor
+            ? this.props.HIDE_ADVANCED_EDITOR()
+            : this.props.SHOW_ADVANCED_EDITOR();
     }
     _handleKeyPress(e) {
         if (e.keyCode === 13) {
             if (e.shiftKey) {
                 e.preventDefault();
-                const text = JSON.parse(this.state.editorText);
-                console.log("Json parsed text: ", text);
-                this.props.UPDATE_ALL_PROPS(text);
+                this._onSubmit();
             }
         } else {
             return;
@@ -63,14 +84,11 @@ export class _TextEditor extends React.Component<any, TEState> {
     render() {
         return (
             <div style={{ marginBottom: "10px" }}>
-                <Collapse isOpen={this.state.showEditor}>
-                    <div
-                        style={{ height: "400px", marginBottom: "50px" }}
-                        onKeyDown={this._handleKeyPress}
-                    >
+                <Collapse isOpen={this.props.showAdvancedEditor}>
+                    <EditorContainer onKeyDown={this._handleKeyPress}>
                         <AceEditor
                             mode="javascript"
-                            theme="monokai"
+                            theme="tomorrow"
                             name="blah2"
                             onLoad={() => console.log("Loaded")}
                             onChange={this._onChange}
@@ -87,15 +105,26 @@ export class _TextEditor extends React.Component<any, TEState> {
                             }}
                         />
                         <Button
-                            text="Submit component changes"
+                            className="submit-button"
+                            text="Update component (Shift + enter)"
                             onClick={this._onSubmit}
-                            intent={Intent.PRIMARY}
+                            intent={
+                                this.state.submitButtonSuccess
+                                    ? Intent.SUCCESS
+                                    : Intent.PRIMARY
+                            }
                         />
 
-                    </div>
+                    </EditorContainer>
                 </Collapse>
                 <Button
-                    text="Advanced Editor"
+                    className="pt-fill"
+                    style={{ marginTop: "10px" }}
+                    text={
+                        this.props.showAdvancedEditor
+                            ? "Hide Advanced Editor"
+                            : "Show Advanced Editor"
+                    }
                     onClick={this._showEditor}
                     intent={Intent.SUCCESS}
                 />
@@ -106,12 +135,15 @@ export class _TextEditor extends React.Component<any, TEState> {
 
 const mapStateToProps = (state: Reducers) => {
     return {
-        value: state.componentReducer.component.props
+        value: state.componentReducer.component.props,
+        showAdvancedEditor: state.editorState.showAdvancedEditor
     };
 };
 
 const mapDispatchToProps = {
-    UPDATE_ALL_PROPS
+    UPDATE_ALL_PROPS,
+    SHOW_ADVANCED_EDITOR,
+    HIDE_ADVANCED_EDITOR
 };
 
 export const TextEditor = connect(mapStateToProps, mapDispatchToProps)(

@@ -7,6 +7,7 @@ import { DialogBundle } from "./blueprint/BPDialog";
 import { InputGroupBundle } from "./blueprint/BPInputGroup";
 import { SpinnerBundle } from "./blueprint/BPSpinner";
 import { ProgressBundle } from "./blueprint/BPProgress";
+import { ReactVistTestBundle } from "./ReactVisTest";
 
 // const CombinedBPSlider = { componentName: 'Button',
 //   docs: ['', ''],  childNode: BPSlider }
@@ -14,6 +15,7 @@ import { ProgressBundle } from "./blueprint/BPProgress";
 //   docs: ['', ''],  childNode: BPSwitch }
 
 export const componentBundleArray = [
+    ReactVistTestBundle,
     MenuBundle,
     ButtonBundle,
     SliderBundle,

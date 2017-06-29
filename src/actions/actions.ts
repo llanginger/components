@@ -74,3 +74,15 @@ export const SHOW_COMPONENTS: () => Action = () => {
         type: "SHOW_COMPONENTS"
     };
 };
+
+export const SHOW_ADVANCED_EDITOR: () => Action = () => {
+    return {
+        type: "SHOW_ADVANCED_EDITOR"
+    };
+};
+
+export const HIDE_ADVANCED_EDITOR: () => Action = () => {
+    return {
+        type: "HIDE_ADVANCED_EDITOR"
+    };
+};

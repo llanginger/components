@@ -12,6 +12,7 @@ const BPButton: any = (props: any) => {
             rightIconName={props.rightIconName}
             target={props.target}
             text={props.text}
+            onClick={props.onClick}
         />
     );
 };
@@ -24,7 +25,8 @@ BPButton.defaultProps = {
     loading: false,
     rightIconName: "share",
     target: "_blank",
-    text: "Duplicate this page"
+    text: "Duplicate this page",
+    onClick: () => console.log("Clicked")
 };
 
 export const ButtonBundle = {

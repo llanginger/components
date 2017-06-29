@@ -6,18 +6,18 @@ import { StringPropUpdater } from "../propUpdaters/StringPropUpdater";
 import { BoolPropUpdater } from "../propUpdaters/BoolPropUpdater";
 import { NumPropUpdater } from "../propUpdaters/NumPropUpdater";
 import { TextEditor } from "../mainComponents/TextEditor";
-import { generateUpdaters } from "../propUpdaters/PropUpdaters";
+import { PropUpdaters } from "../propUpdaters/PropUpdaters";
 import { Reducers } from "../store";
 import { connect } from "react-redux";
 
 interface PLProps {
-    currentComponent: {
+    currentComponent?: {
         props: any;
         componentName: string;
     };
 }
 
-export const _PropList = (props: PLProps) => {
+export const PropList = (props: PLProps) => {
     const Container = styled.div`
     width: 100%;
     height: 100%;
@@ -54,16 +54,16 @@ export const _PropList = (props: PLProps) => {
         <Container>
             <DocWrapper>
                 <TextEditor />
-                {generateUpdaters(props.currentComponent.props)}
+                <PropUpdaters />
             </DocWrapper>
         </Container>
     );
 };
 
-const mapStateToProps = (state: Reducers) => {
-    return {
-        currentComponent: state.componentReducer.component
-    };
-};
+// const mapStateToProps = (state: Reducers) => {
+//     return {
+//         currentComponent: state.componentReducer.component
+//     };
+// };
 
-export const PropList = connect(mapStateToProps, {})(_PropList);
+// export const PropList = connect(mapStateToProps, {})(_PropList);

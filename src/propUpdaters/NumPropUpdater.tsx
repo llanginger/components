@@ -37,7 +37,7 @@ export class NumPropUpdater extends React.Component<NPUProps, NPUState> {
         return (
             <Form onSubmit={this._onSubmit}>
 
-                <p>{this.props.propName}:</p>
+                <p>{this.props.propName}, number:</p>
                 <input
                     className="pt-input pt-fill"
                     placeholder={this.props.propValue.toString() || "0"}

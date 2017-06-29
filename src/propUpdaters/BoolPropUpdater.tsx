@@ -25,7 +25,7 @@ interface BPUProps {
 export const BoolPropUpdater = (props: BPUProps) => {
     return (
         <Container>
-            <Title>{props.propName}:</Title>
+            <Title>{props.propName}, boolean:</Title>
             <Popover
                 content={
                     <Menu>
