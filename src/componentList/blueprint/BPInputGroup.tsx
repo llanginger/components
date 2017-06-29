@@ -3,7 +3,7 @@ import * as React from "react";
 import { InputGroup, Button, Intent } from "@blueprintjs/core";
 
 const lockButton = (
-    <Button intent={Intent.WARNING} disabled={false} iconName={"lock"} />
+    <Button intent={Intent.PRIMARY} disabled={false} iconName={"lock"} />
 );
 
 const InputGroupExample: any = props => {
@@ -12,7 +12,7 @@ const InputGroupExample: any = props => {
             className={props.className}
             disabled={props.disabled}
             placeholder={props.placeholder}
-            rightElement={props.rightElement}
+            rightElement={lockButton}
             type={props.type}
         />
     );
@@ -22,7 +22,6 @@ InputGroupExample.defaultProps = {
     className: "pt-large",
     disabled: false,
     placeholder: "Enter your password...",
-    rightElement: lockButton,
     type: "password"
 };
 
