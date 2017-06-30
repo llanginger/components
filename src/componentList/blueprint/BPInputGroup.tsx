@@ -12,7 +12,7 @@ const InputGroupExample: any = props => {
             className={props.className}
             disabled={props.disabled}
             placeholder={props.placeholder}
-            rightElement={lockButton}
+            rightElement={props.rightElement}
             type={props.type}
         />
     );
@@ -22,7 +22,10 @@ InputGroupExample.defaultProps = {
     className: "pt-large",
     disabled: false,
     placeholder: "Enter your password...",
-    type: "password"
+    type: "password",
+    rightElement: (
+        <Button intent={Intent.PRIMARY} disabled={false} iconName={"lock"} />
+    )
 };
 
 export const InputGroupBundle = {

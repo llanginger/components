@@ -10,6 +10,7 @@ import { ProgressBundle } from "./blueprint/BPProgress";
 import { ReactVistTestBundle } from "./reactVis/ReactVisTest";
 import { ReactVisTreeBundle } from "./reactVis/ReactVisTree";
 import { SimpleCloudBundle } from "./TagCloud";
+import { TileLayoutBundle } from "./TileLayout";
 
 // const CombinedBPSlider = { componentName: 'Button',
 //   docs: ['', ''],  childNode: BPSlider }
@@ -26,5 +27,6 @@ export const componentBundleArray = [
     SpinnerBundle,
     ProgressBundle,
     ReactVisTreeBundle,
-    SimpleCloudBundle
+    SimpleCloudBundle,
+    TileLayoutBundle
 ];
