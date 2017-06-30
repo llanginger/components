@@ -10,6 +10,7 @@ import { BoolPropUpdater } from "./BoolPropUpdater";
 import { NumPropUpdater } from "./NumPropUpdater";
 
 const generateUpdaters = propList => {
+    let obj = false;
     console.log("Generate updaters called");
     let propArray = [];
     Object.keys(propList).forEach((key, i) => {
@@ -32,7 +33,8 @@ const generateUpdaters = propList => {
                     <BoolPropUpdater propValue={value} propName={key} />
                 </div>
             );
-        } else if (typeof value === "object") {
+        } else if (typeof value === "object" && obj === false) {
+            obj = true;
             propArray.push(
                 <div key={i}>
                     <p>Open advanced editor for more detailed prop options!</p>

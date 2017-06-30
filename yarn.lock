@@ -158,6 +158,10 @@ array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
 
+array-shuffle@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/array-shuffle/-/array-shuffle-1.0.1.tgz#7ea4882a356b4bca5f545e0b6e52eaf6d971557a"
+
 array-union@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/array-union/-/array-union-1.0.2.tgz#9a34410e4f4e3da23dea375be5be70f24778ec39"
@@ -3664,6 +3668,10 @@ randombytes@^2.0.0, randombytes@^2.0.1:
   dependencies:
     safe-buffer "^5.1.0"
 
+randomcolor@^0.4.2:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/randomcolor/-/randomcolor-0.4.4.tgz#5ff56862e97ba03beb0419ff0536ec7aff59eeeb"
+
 range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
@@ -3745,6 +3753,15 @@ react-redux@5.0.5:
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
+
+react-tagcloud:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-tagcloud/-/react-tagcloud-1.2.0.tgz#15d781913b13bbcdab846a794ec4e6e3540338ca"
+  dependencies:
+    array-shuffle "^1.0.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.8"
+    randomcolor "^0.4.2"
 
 react-test-renderer@^15.5.4:
   version "15.6.1"
