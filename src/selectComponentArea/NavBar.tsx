@@ -8,7 +8,7 @@ import { ComponentButton, EditorButton } from "./MenuButtons";
 export const NavBar = (props: any) => {
     return (
         <div
-            style={{ width: "100%", marginBottom: "10px" }}
+            style={{ width: "100%" }}
             className="pt-button-group pt-fill pt-large"
         >
             <ComponentButton />

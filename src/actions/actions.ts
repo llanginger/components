@@ -39,6 +39,13 @@ export const UPDATE_ALL_PROPS: (
     return actionObj;
 };
 
+export const FILTER_COMPONENTS: (payload: any) => Action = (payload: any) => {
+    return {
+        type: "FILTER_COMPONENTS",
+        payload
+    };
+};
+
 export const SHOW_DOCS: () => Action = () => {
     return {
         type: "SHOW_DOCS"

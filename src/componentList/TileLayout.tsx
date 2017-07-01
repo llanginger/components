@@ -27,13 +27,14 @@ const Tile = styled.div`
     font-size: 16px;
     color: rgb(121, 199, 227);
     background-color: rgb(26, 49, 119);
-    border-radius: 15px;
+    border-radius: 5px;
     margin-bottom: 10px;
 `;
 const TileColumn = styled.div`
     width: 50%;
     padding: 0px 1%;
     display: flex;
+    align-items: center;
     flex-direction: column;
     height: 100%;
     flex-shrink: 0;
