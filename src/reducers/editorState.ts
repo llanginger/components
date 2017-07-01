@@ -14,6 +14,7 @@ export const editorState = (state: editorState = initState, action) => {
         case "DISPLAY_COMPONENT":
             return { ...state, showComponents: false };
         case "SHOW_COMPONENTS":
+        case "FILTER_COMPONENTS":
             return {
                 ...state,
                 showComponents: true,
